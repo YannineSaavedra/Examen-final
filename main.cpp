@@ -16,3 +16,8 @@ void find(map<string, set<string>> mapa, string fecha);
 void print( const map<string, set<string>> mapa);
 bool comprobar_dia(int dia);
 bool comprobar_mes(int mes);
+
+int main()
+{
+
+    string comando, fecha, evento;
