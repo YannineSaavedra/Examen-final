@@ -75,5 +75,8 @@ void add(map<string, set<string>> mapa, string fecha, string evento){
 //encontrar todos los eventos por fecha
 void find(map<string, set<string>> mapa, string fecha){
     set<string> eventos = mapa.find(fecha)->second; //guardar todos los eventos de la fecha en un set
-
+for (auto e : eventos){
+        cout<<fecha<<" : "<<e<<endl; //muestra todos los eventos de la fecha
+    }
+}
             
