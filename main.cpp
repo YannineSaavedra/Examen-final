@@ -30,3 +30,4 @@ int main()
     } while (comando != "x");
      return 0;
 }
+void respuesta(string fecha, string evento, string comando){
