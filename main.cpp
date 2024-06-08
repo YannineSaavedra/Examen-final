@@ -61,4 +61,10 @@ void respuesta(string fecha, string evento, string comando){
     }
 }
 
+void add_repetidos(map<string, set<string>> mapa, string fecha, string evento){
+    set<string> eventos = mapa.find(fecha)->second;
+    eventos.insert(evento);
+    mapa[fecha] = eventos;
+}
+
             
