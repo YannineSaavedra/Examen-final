@@ -32,3 +32,5 @@ int main()
 }
 void respuesta(string fecha, string evento, string comando){
      map<string, set<string>> eventos;
+     if( comando == "Add") {
+        if (eventos.count(fecha) != 0){
