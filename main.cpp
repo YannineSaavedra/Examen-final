@@ -47,4 +47,13 @@ void respuesta(string fecha, string evento, string comando){
             del(eventos, fecha);
         }
     }
+    else if( comando == "Find") {
+        if (eventos.count(fecha) != 0){
+            find(eventos, fecha); //encontrar eventos por fecha
+        }
+        else {
+            "No existe";
+        }
+        
+    }
             
