@@ -96,4 +96,10 @@ void print( const map<string, set<string>> mapa){
         }
     }
 }
+//comprobar que el dia este en el rango correcto
+bool comprobar_dia(int dia){
+    if (dia > 0 && dia <= 31){return true;}
+    return false;
+}
+
             
