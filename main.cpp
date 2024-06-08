@@ -26,3 +26,4 @@ int main()
         cin >> comando;
         cout<<"Fecha y Evento: "<<endl;
         cin >> fecha >> evento;
+        respuesta(fecha, evento, comando);
