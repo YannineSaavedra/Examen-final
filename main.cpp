@@ -83,4 +83,8 @@ for (auto e : eventos){
 void del(map<string, set<string>> mapa, string fecha){
 
 }
+//eliminar un solo evento especifico
+void delOne(map<string, set<string>> mapa, string fecha, string evento){
+
+}
             
