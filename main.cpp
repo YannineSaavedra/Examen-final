@@ -72,6 +72,8 @@ void add(map<string, set<string>> mapa, string fecha, string evento){
     eventos.insert(evento);
     mapa[fecha] = eventos;
 }
-
+//encontrar todos los eventos por fecha
+void find(map<string, set<string>> mapa, string fecha){
+    set<string> eventos = mapa.find(fecha)->second; //guardar todos los eventos de la fecha en un set
 
             
