@@ -40,4 +40,6 @@ void respuesta(string fecha, string evento, string comando){
             add(eventos, fecha, evento); //anhadir evento
         }
     }
+    else if( comando == "Del") {
+        if(evento != ""){ //eliminar un solo evento
             
