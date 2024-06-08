@@ -79,4 +79,8 @@ for (auto e : eventos){
         cout<<fecha<<" : "<<e<<endl; //muestra todos los eventos de la fecha
     }
 }
+//eliminar todos los eventos de una fecha
+void del(map<string, set<string>> mapa, string fecha){
+
+}
             
