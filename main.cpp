@@ -89,4 +89,11 @@ void delOne(map<string, set<string>> mapa, string fecha, string evento){
 }
 //mostrar todos los eventos
 void print( const map<string, set<string>> mapa){
+    for (auto item : mapa){
+        set<string> eventos = item.second;
+        for (auto e : eventos){
+        cout<<item.first<<" : "<<e<<endl; //muestra todos los eventos de la fecha
+        }
+    }
+}
             
