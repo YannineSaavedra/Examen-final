@@ -68,5 +68,7 @@ void add_repetidos(map<string, set<string>> mapa, string fecha, string evento){
 }
 //anhadir eventos por fecha si no existen
 void add(map<string, set<string>> mapa, string fecha, string evento){
+    set<string> eventos;
+    eventos.insert(evento);
 
             
