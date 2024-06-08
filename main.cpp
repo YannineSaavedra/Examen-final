@@ -87,4 +87,6 @@ void del(map<string, set<string>> mapa, string fecha){
 void delOne(map<string, set<string>> mapa, string fecha, string evento){
 
 }
+//mostrar todos los eventos
+void print( const map<string, set<string>> mapa){
             
