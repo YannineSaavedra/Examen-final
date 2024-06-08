@@ -54,6 +54,11 @@ void respuesta(string fecha, string evento, string comando){
         else {
             "No existe";
         }
-        
+ 
     }
+    else if ( comando ==  "Print") {
+        print(eventos); //mostrar todos los eventos
+    }
+}
+
             
