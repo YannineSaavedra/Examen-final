@@ -42,4 +42,9 @@ void respuesta(string fecha, string evento, string comando){
     }
     else if( comando == "Del") {
         if(evento != ""){ //eliminar un solo evento
+        delOne(eventos, fecha, evento);
+        } else{ //eliminar todos los eventos de una fecha
+            del(eventos, fecha);
+        }
+    }
             
