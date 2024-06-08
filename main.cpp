@@ -24,3 +24,5 @@ int main()
     do {
         cout<<"Comando: "<<endl;
         cin >> comando;
+        cout<<"Fecha y Evento: "<<endl;
+        cin >> fecha >> evento;
