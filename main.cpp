@@ -28,3 +28,5 @@ int main()
         cin >> fecha >> evento;
         respuesta(fecha, evento, comando);
     } while (comando != "x");
+     return 0;
+}
