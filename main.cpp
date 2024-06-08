@@ -101,5 +101,9 @@ bool comprobar_dia(int dia){
     if (dia > 0 && dia <= 31){return true;}
     return false;
 }
-
+//comprobar que el mes este en el rango correcto
+bool comprobar_mes(int mes){
+    if (mes > 0 && mes <= 12){return true;}
+    return false;
+}
             
