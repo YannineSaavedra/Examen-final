@@ -31,3 +31,4 @@ int main()
      return 0;
 }
 void respuesta(string fecha, string evento, string comando){
+     map<string, set<string>> eventos;
