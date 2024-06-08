@@ -21,3 +21,6 @@ int main()
 {
 
     string comando, fecha, evento;
+    do {
+        cout<<"Comando: "<<endl;
+        cin >> comando;
