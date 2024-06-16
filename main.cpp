@@ -64,4 +64,10 @@ int main()
             
             }
             add(eventos, fecha, evento);
+            } else if (comando == "Del") {
+            if (!evento.empty()) {
+                delOne(eventos, fecha, evento);
+            } else {
+                del(eventos, fecha);
+            }
 
