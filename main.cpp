@@ -29,3 +29,13 @@ int main()
     string comando, fecha, evento;
     map<string, set<string>> eventos;
     Fecha f;
+    while (true) {
+        cout << "Comando (x para terminar): "<<endl;
+        cin >> comando;
+
+        if (comando == "x") break;
+
+        if (comando == "Print") {
+            print(eventos);
+            continue;
+        }
