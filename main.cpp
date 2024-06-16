@@ -23,3 +23,9 @@ vector<int> leerFecha(string line);
 
 bool comprobar_dia(int dia);
 bool comprobar_mes(int mes);
+
+int main()
+{
+    string comando, fecha, evento;
+    map<string, set<string>> eventos;
+    Fecha f;
