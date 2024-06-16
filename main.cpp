@@ -19,3 +19,4 @@ void find(map<string, set<string>>& mapa, string fecha);
 void print(const map<string, set<string>>& mapa);
 
 string convertirFecha(Fecha fecha);
+vector<int> leerFecha(string line);
