@@ -17,3 +17,5 @@ void del(map<string, set<string>>& mapa, string fecha);
 void delOne(map<string, set<string>>& mapa, string fecha, string evento);
 void find(map<string, set<string>>& mapa, string fecha);
 void print(const map<string, set<string>>& mapa);
+
+string convertirFecha(Fecha fecha);
