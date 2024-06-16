@@ -59,4 +59,9 @@ int main()
         fecha = convertirFecha(f);
         
         getline(cin, evento); // Leer el resto de la línea para el event
+        if (comando == "Add") {
+            if (evento.empty()) {
+            
+            }
+            add(eventos, fecha, evento);
 
