@@ -13,3 +13,4 @@ struct Fecha {
     int dia;
 };
 void add(map<string, set<string>>& mapa, string fecha, string evento);
+void del(map<string, set<string>>& mapa, string fecha);
