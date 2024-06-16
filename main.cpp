@@ -39,3 +39,10 @@ int main()
             print(eventos);
             continue;
         }
+         cin >> fecha;
+        vector<int> vectorfecha = leerFecha(fecha);
+
+        if (vectorfecha.size() != 3) {
+            cout << "Wrong Date Format: "<< fecha << endl;
+            continue;
+        }
