@@ -48,3 +48,11 @@ int main()
         f.anho = vectorfecha[0];
         f.mes = vectorfecha[1];
         f.dia = vectorfecha[2];
+         if(comprobar_mes(f.mes) == false) {
+            cout << "Month value is invalid: " + to_string(f.mes) << endl;
+            continue;
+        }
+        if(comprobar_dia(f.dia) == false) {
+            cout << "Day value is invalid: " + to_string(f.dia) << endl;
+            continue;
+        }
