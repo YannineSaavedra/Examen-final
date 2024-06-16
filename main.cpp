@@ -20,3 +20,6 @@ void print(const map<string, set<string>>& mapa);
 
 string convertirFecha(Fecha fecha);
 vector<int> leerFecha(string line);
+
+bool comprobar_dia(int dia);
+bool comprobar_mes(int mes);
