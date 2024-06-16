@@ -46,3 +46,6 @@ int main()
             cout << "Wrong Date Format: "<< fecha << endl;
             continue;
         }
+        f.anho = vectorfecha[0];
+        f.mes = vectorfecha[1];
+        f.dia = vectorfecha[2];
