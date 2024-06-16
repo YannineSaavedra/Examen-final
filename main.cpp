@@ -70,4 +70,14 @@ int main()
             } else {
                 del(eventos, fecha);
             }
+            } else if (comando == "Find") {
+            if (eventos.count(fecha) != 0) {
+                find(eventos, fecha);
+            } else {
+                cout << "No existe" << endl;
+            }
+        } else {
+            cout << "Unknow command: "<< comando << endl;
+        }
+    }
 
