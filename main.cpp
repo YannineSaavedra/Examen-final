@@ -12,3 +12,4 @@ struct Fecha {
     int mes;
     int dia;
 };
+void add(map<string, set<string>>& mapa, string fecha, string evento);
