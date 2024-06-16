@@ -56,3 +56,7 @@ int main()
             cout << "Day value is invalid: " + to_string(f.dia) << endl;
             continue;
         }
+        fecha = convertirFecha(f);
+        
+        getline(cin, evento); // Leer el resto de la línea para el event
+
