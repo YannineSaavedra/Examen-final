@@ -150,6 +150,16 @@ string convertirFecha(Fecha fecha) {
     string f = to_string(fecha.anho) + "-" + mes + "-" + dia; // construir la cadena AAAA-MM-DD
     return f;
 }
+// Función para validar que el día esté en el rango correcto (1-31)
+bool comprobar_dia(int dia) {
+    return dia > 0 && dia <= 31; // Devolver true si el día está en el rango correcto, false de lo contrario
+}
+
+// Función para validar que el mes esté en el rango correcto (1-12)
+bool comprobar_mes(int mes) {
+    return mes > 0 && mes <= 12; // Devolver true si el mes está en el rango correcto, false de lo contrario
+}
+
 
 
 
