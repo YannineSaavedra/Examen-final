@@ -112,7 +112,45 @@ void find(map<string, set<string>>& mapa, string fecha) {
 void del(map<string, set<string>>& mapa, string fecha) {
     mapa.erase(fecha); // eliminar la fecha y su conjunto de eventos del mapa
 }
+// función para eliminar un evento específico de una fecha
+void delOne(map<string, set<string>>& mapa, string fecha, string evento) {
+    if (mapa.count(fecha)) { // verificar si la fecha existe en el mapa
+        mapa[fecha].erase(evento); // eliminar el evento específico del conjunto de eventos de la fecha
+        if (mapa[fecha].empty()) {
+            mapa.erase(fecha); // si el conjunto de eventos está vacío, eliminar la fecha del mapa
+        }
+    }
 }
+
+// función para mostrar todos los eventos en el mapa, ordenados por fecha y evento
+void print(const map<string, set<string>>& mapa) {
+    for (const auto& item : mapa) {
+        const set<string>& eventos = item.second; // obtener el conjunto de eventos para la fecha actual
+        for (const auto& e : eventos) {
+            cout << item.first << " : " << e << endl; // mostrar cada evento de la fecha actual
+        }
+    }
+}
+
+// función para convertir una estructura Fecha a una cadena en formato AAAA-MM-DD
+string convertirFecha(Fecha fecha) {
+    string mes, dia;
+    if (fecha.mes < 10) {
+        mes = "0" + to_string(fecha.mes); // agregar un cero adelante si el mes es de un solo dígito
+    } else {
+        mes = to_string(fecha.mes);
+    }
+
+    if (fecha.dia < 10) {
+        dia = "0" + to_string(fecha.dia); // agregar un cero adelante si el día es de un solo dígito
+    } else {
+        dia = to_string(fecha.dia);
+    }
+
+    string f = to_string(fecha.anho) + "-" + mes + "-" + dia; // construir la cadena AAAA-MM-DD
+    return f;
+}
+
 
 
 
