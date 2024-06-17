@@ -80,4 +80,21 @@ int main()
             cout << "Unknow command: "<< comando << endl;
         }
     }
+     return 0;
+}
+
+// Funcion para analizar una linea y convertirla en un vector de enteros
+vector<int> leerFecha(string sdate) {
+    string s;
+    vector<int> v;
+    for(int i = 0; i < sdate.size(); ++i){
+        s += sdate[i];
+        if(sdate[i] == '-' || i == sdate.size() - 1){
+            v.push_back(stoi(s));
+            s = "";
+        }
+    }
+    return v;
+}
+
 
