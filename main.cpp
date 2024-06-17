@@ -95,6 +95,24 @@ vector<int> leerFecha(string sdate) {
         }
     }
     return v;
+    // función para agregar un evento a una fecha en el mapa de eventos
+void add(map<string, set<string>>& mapa, string fecha, string evento) {
+    mapa[fecha].insert(evento); // Insertar el evento en el conjunto correspondiente a la fecha
 }
+
+// función para encontrar y mostrar todos los eventos de una fecha
+void find(map<string, set<string>>& mapa, string fecha) {
+    set<string> eventos = mapa[fecha]; 
+    for (const auto& e : eventos) {
+        cout << fecha << " : " << e << endl; // mostrar cada evento de la fecha
+    }
+}
+
+// función para eliminar todos los eventos de una fecha
+void del(map<string, set<string>>& mapa, string fecha) {
+    mapa.erase(fecha); // eliminar la fecha y su conjunto de eventos del mapa
+}
+}
+
 
 
