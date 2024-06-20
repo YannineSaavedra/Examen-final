@@ -1,6 +1,6 @@
 # Examen-final
 ## Problema:
-El problema requiere diseñar un programa en C++ para gestionar una base de datos de eventos asociados a fechas específicas, permitiendo la inserción, eliminación, búsqueda e impresión de eventos a través de comandos introducidos por el usuario en la entrada estándar. Las fechas deben seguir el formato AAAA-MM-DD, y los eventos deben ser cadenas sin espacios. Los comandos soportados son agregar evento (Add Fecha Evento), eliminar evento (Del Fecha Evento), eliminar todos los eventos en una fecha (Del Fecha), buscar eventos en una fecha (Find Fecha), e imprimir todos los eventos (Print). Se deben validar las fechas y comandos, manejando errores como formato incorrecto de la fecha, meses fuera del rango 1-12 y días fuera del rango 1-31, proporcionando mensajes claros de error, éxito y mensajes específicos para errores de formato y rango.
+El problema requiere diseñar un programa en C++ para gestionar una base de datos de eventos asociados a fechas específicas, permitiendo la inserción, eliminación, búsqueda e impresión de eventos a través de comandos introducidos por el usuario en la entrada estándar. Las fechas deben seguir el formato AAAA-MM-DD, y los eventos deben ser cadenas sin espacios. Los comandos soportados son agregar evento (Add Fecha Evento), eliminar evento (Del Fecha Evento), eliminar todos los eventos en una fecha (Del Fecha), buscar eventos en una fecha (Find Fecha), e imprimir todos los eventos (Print). Se deben validar las fechas y comandos, manejando errores como formato incorrecto de la fecha, meses fuera del rango 1-12 y días fuera del rango 1-31, proporcionando mensajes específicos para errores de formato y rango.
 
 ## Comparativa de base de datos existentes:
 Los principales motores de bases de datos que existen se dividen en dos campos:
@@ -49,12 +49,10 @@ Se representa la base de datos bajo el concepto de un grafo. Permite almacenar l
 Existen otros tipos de bases de datos noSQL, sin embargo estás son las principales o más utilizadas.
 
 ## Justificación:
-Este ejercicio de gestión de una base de datos de eventos asociados a fechas específicas mediante comandos de entrada estándar es esencial para desarrollar varias habilidades clave en programación. En primer lugar, permite practicar la manipulación de datos y el uso de estructuras avanzadas como map y set, que son fundamentales para el almacenamiento y acceso eficiente de datos. Implementar operaciones CRUD (crear, leer, actualizar y eliminar) en este contexto es una práctica crucial para cualquier desarrollador, ya que estas operaciones son la base de la mayoría de las aplicaciones de software.
-La validación de entrada y el manejo de errores son aspectos críticos que se abordan en este problema. Verificar la corrección del formato de fecha y el rango de los valores del mes y día, así como manejar comandos desconocidos, enseña a los estudiantes a escribir programas robustos y seguros. Proporcionar retroalimentación clara y específica al usuario mediante mensajes de error también mejora la experiencia del usuario y facilita la depuración del código.
-Además, este ejercicio fomenta la modularidad y la buena organización del código mediante la descomposición en funciones y el uso de estructuras. La interacción con el usuario a través de una interfaz de línea de comandos es una habilidad práctica valiosa, especialmente para la creación de herramientas y scripts de automatización. En resumen, este problema es un ejercicio integral que abarca múltiples aspectos de la programación y es fundamental para el desarrollo de un programador competente y versátil.
+Esta propuesta de un nuevo modelo de base de datos surge a partir de la necesidad de sencillez en las funciones que cumple la misma. Debido a que se requiere un procesamiento específico, es decir el de almacenar eventos en una fecha determinada, no le es necesario al usuario final todas las otras funcionalidades que ofrecen modelos más complejos, como los detallados arriba en la comparativa de bases de datos existentes. Entonces serían en todo caso funcionalidades no utilizadas para el problema que nos es planteado, porque solo se requiere del procesamiento de cuatro comandos y el manejo de ciertos errores entrada, por lo que este nuevo modelo es lo más adecuado para solventar el problema planteado.
 
 ## Estructura de repositorio
-Trabajamos en respositorios individuales, por lo que no fue necesario crear otras ramas. Aún así ambas solo utilizamos la rama main para guardar lo necesario: el documento READ.ME y los archivos cpps y headers para el código.
+Trabajamos en respositorios individuales, por lo que no fue necesario crear otras ramas y fue utilizado solo la rama main en ambos casos. En esta rama guardamos todo lo necesario, por un lado en el READ.ME se encuentra todo lo requerido por el docente con respecto a la documentación y con respecto al código se tiene los archivos cpps y headers correspondientes.
 
 ## Descripcion de las estructuras y funciones
 ESTRUCTURAS:
@@ -76,6 +74,7 @@ FUNCIONES:
 Fuente para la investigación: https://sedici.unlp.edu.ar/bitstream/handle/10915/91403/Documento_completo.pdf?sequence=1&isAllowed=y
 
 ## Herramientas utilizadas
-- VisualStudioCode
-- Programiz C++
-- Github
+su funcion y relevancia para el proyecto
+- VisualStudioCode: es la herramienta utilizada para compilar el código el día del examen, por lo que su uso es indispensable a la hora de desarrollar el proyecto porque se debe verificar que compile correctamente en todo momento. Además es el medio por el cual subimos los avanzado del código al repositorio del github, para cumplir con los commits requeridos.
+- Programiz C++: es la herramienta que más utilizamos a lo largo del desarrollo porque ofrece una forma de compilar más rápida y sencilla a comparación del VSCode. De esta manera optimizamos más el tiempo al momento de ir probando las distintas lógicas para abordar el problema.
+- Github: ofrece un lugar seguro para guardar el desarrollo de un código y cualquier tipo de información en general, por lo que su uso fue indispensable porque de esta manera teniamos acceso a versiones anteriores que podiamos consultar de ser necesario.
