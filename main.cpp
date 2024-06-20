@@ -1,150 +1,78 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <set>
-using namespace std;
+#include "funciones.h"
 
-struct FECHA{
-    int año;
-    int mes;
-    int dia;
-};
-int main(){
-    string comando, fecha, evento;
+int main() {
+    string input;
+    string comando;
+    string fecha;
+    string evento;
+    vector<string> v_comandos;
     map<string, set<string>> mapa;
-    vector<string> comandos;
-    FECHA f;
     
-    while(true){
-        cin >> comando;
-//exit para dejar de pedir lineas de comando en la entrada
-        if(comando == "exit") break;
-//para soportar lineas de entrada vacías
-        if(comando.empty()) continue; //¿el comando esta vacío? YES: vaya a repetir el while
-//Función PRINT
-        if(comando == "Print"){
-            comandos.push_back(comando);
-            continue;
-        }
-    
-        cin >> fecha;
-        vector<int> v_fecha;
+while(true){
+    getline(cin, input);
+    if(input == "exit") break;
+    if(input.empty()) continue;
+//Separando lo ingresado según los espacios   
+    vector<string> v_input = separar_input(input);
 
-//En esta parte procesamos el AÑO, se hace un for para reescribirlo o determinar si el formato es incorrecto 
-        string s_año = ""; //para reescribir el año
-        int hy_año = 0; //para contar los guiones antes del año hypens
-        int i_año = 0;
-        for(int i = 0; i < fecha.size(); ++i){
-            if(fecha[i] == '-'){ //¿el caracter donde nos encontramos es igual a '-'? YES: contar los guiones que hay antes del año
-                ++hy_año;
-            }
-            if(hy_año >= 2){ //¿los guiones son mayor a 2? YES: el formato es incorrecto y sale del for
-                cout << "Wrong date format: " << fecha << endl;
-                s_año = "";
-                v_fecha.clear();
-                break;
-            } else { //NO: se reescribe el año
-                s_año += fecha[i];
-                if(s_año == "-" || fecha[i] == '+'){ //¿el año es igual a '-' o el caracter donde estamos es igual a '+'? YES: vaya a repetir el for
-                    if(fecha[i] == '+'){ //¿el caracter donde estamos es igual a '+'? YES: se borra el + de la string año, y recién se va a repetir el for
-                        s_año.erase(s_año.size() - 1);
-                    }
-                    continue;
-                } else { //NO: veamos si terminamos de reescribir el año o no..
-                    if(fecha[i + 1] == '-'){ //¿el siguiente caracter es '-'? YES: guardamos en un vector el valor del año, guardamos el valor de i en otra variable y sale del for porque terminamos de reescribir el año
-                        v_fecha.push_back(stoi(s_año));
-                        i_año = i;
-                        break;   
-                    } else { //NO: vaya a repetir el for, porque no terminamos de reescribir el año
-                        continue;
-                    }
+//Según el comando:    
+    comando = v_input[0];
+    if(comando == "Add"){
+        fecha = v_input[1];
+        if(!validar_fecha(fecha)){
+            break;
+        }
+        evento = v_input[2];
+        mapa[fecha].insert(evento);
+        v_input.clear();
+    } else if(comando == "Find"){
+        v_comandos.push_back(comando);
+        fecha = v_input[1];
+        if(!validar_fecha(fecha)){
+            break;
+        }
+        //se guarda la fecha ingresada en esta linea de comando
+        fecha_Find.push_back(fecha);
+        v_input.clear();
+    } else if(comando == "Del"){
+        v_comandos.push_back(comando);
+        fecha = v_input[1];
+        if(!validar_fecha(fecha)){
+            break;
+        }
+        if(v_input.size() == 2){ //fundion del
+            mapa.erase(fecha);
+        } else {
+            evento = v_input[2]; //funcion del_one
+            if(mapa.count(fecha)){
+                if(mapa[fecha].erase(evento)){
+                    cout << "Deleted successfully" << endl;
+                } 
+                if(mapa[fecha].empty()){
+                    mapa.erase(fecha);
                 }
-            }
-        }
-        if(s_año.empty()){ //¿Esta vacía la string del año? YES: i_año es igual al tamaño de la fecha porque significa que el formato era incorrecto, entonces no necesitamos entrar el loop del mes
-            i_año = fecha.size();
-        } //NO: se procede a procesar el mes
-
-        string s_mes = "";
-        int hy_mes = 0;
-        for(i_año += 1; i_año < fecha.size(); ++i_año){
-            if(fecha[i_año] == '-'){
-                ++hy_mes;
-            }
-            if(hy_mes >= 3 || (hy_mes == 2 && fecha[i_año + 1] == '+')){
-                cout << "Wrong date format: " << fecha << endl;
-                s_mes = "";
-                v_fecha.clear();
-                break;
             } else {
-                s_mes += fecha[i_año];
-                if(fecha[i_año] == '-'){ //para 1-1
-                    if(hy_mes == 1){
-                        s_mes = "";
-                        continue;   
-                    }
-                } else if(fecha[i_año] == '+'){
-                    s_mes = "";
-                    continue;
-                } else if(fecha[i_año + 1] == '-' || i_año == fecha.size() - 1){
-                    v_fecha.push_back(stoi(s_mes));
-                    s_mes = "";
-                    hy_mes = 0;
-                    continue;
-                }
+                cout << "Event not found" << endl;
             }
-        } 
-        if(v_fecha.size() != 3){
-            cout << "Wrong date format: " << fecha << endl;
         }
-        
-        //la fecha esta guardada en un vector de enteros, ahora hay que comprobar la validez del mes y del día
-        f.año = v_fecha[0];
-        f.mes = v_fecha[1];
-        f.dia = v_fecha[2];
-        if(f.mes < 1 && f.mes > 12){
-            cout << "Month value invalid: " << f.mes << endl;
-        }
-        if (f.dia < 1 && f.dia > 31){
-            cout << "Day value invalid: " << f.dia << endl;
-        }
-
-        if(comando == "Find"){
-            comandos.push_back(comando);
-            continue;
-        }
-
-        cin >> evento;
-
-//Función ADD
-        if(comando == "Add"){
-            mapa[fecha].insert(evento);
-        } else if(comando == "Del"){
-            comandos.push_back(comando);
-            continue;
-        }
-
+        v_input.clear();
+    } else if(comando == "Print"){
+        v_comandos.push_back(comando);
+        v_input.clear();
+    } else {
+        cout << "Unknown command: " << comando << endl;
+        break;
     }
-
-//Para imprimir lo necesario después de haber sido ingresado "exit"    
-    cout << comandos.size() << endl; //el tamaño es 1 pero el indice es 0
-    for(int i = 0; i < comandos.size(); ++i){
-        if(comandos[i] == "Print"){
-            for(auto clave : mapa){
-                set<string> eventos = clave.second;
-                for(auto valor : eventos){
-                    cout << clave.first << " : " << valor << endl;
-                }
-            }
-        } else if(comandos[i] == "Find"){
-            set<string> eventos = mapa[fecha];
-            for (const auto& e : eventos) {
-                cout << e << endl;
-            }
-        } else if(comando == "Del"){
-            
+}
+//Los comandos que imprimen algo
+    for(int i = 0; i < v_comandos.size(); ++i){
+        if(v_comandos[i] == "Find"){
+            find(fecha_Find, mapa);
+        } else if(v_comandos[i] == "Del"){
+        } else if(v_comandos[i] == "Print"){
+            print(mapa);
         }
     }
-
-    return 0;  
+    
+    return 0;
 }
