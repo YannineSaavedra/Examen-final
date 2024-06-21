@@ -5,45 +5,51 @@ int main() {
     string comando;
     string fecha;
     string evento;
-    vector<string> v_comandos;
     map<string, set<string>> mapa;
     
-while(true){
+    vector<string> v_comandos;
+    vector<int> v_fecha;
+    vector<string> fecha_Find;
+
+    while(true){
     getline(cin, input);
     if(input == "exit") break;
     if(input.empty()) continue;
-//Separando lo ingresado según los espacios   
+     
     vector<string> v_input = separar_input(input);
-
-//Según el comando:    
     comando = v_input[0];
+
+//ADD:
     if(comando == "Add"){
         fecha = v_input[1];
-        if(!validar_fecha(fecha)){
-            break;
-        }
+            if(!validar_fecha(fecha)) break;
         evento = v_input[2];
-        mapa[fecha].insert(evento);
-        v_input.clear();
-    } else if(comando == "Find"){
+            mapa[fecha].insert(evento);
+            v_input.clear();
+    }
+
+//FIND:   
+    else if(comando == "Find"){
         v_comandos.push_back(comando);
         fecha = v_input[1];
-        if(!validar_fecha(fecha)){
-            break;
-        }
-        //se guarda la fecha ingresada en esta linea de comando
-        fecha_Find.push_back(fecha);
+        if(!validar_fecha(fecha)) break;
+        fecha_Find.push_back(fecha); //se guarda la fecha ingresada en esta linea de comando
         v_input.clear();
-    } else if(comando == "Del"){
+    }
+
+//DEL:
+    else if(comando == "Del"){
         v_comandos.push_back(comando);
         fecha = v_input[1];
-        if(!validar_fecha(fecha)){
-            break;
-        }
-        if(v_input.size() == 2){ //fundion del
+        if(!validar_fecha(fecha)) break;
+ //DEL_fecha:      
+        if(v_input.size() == 2){
             mapa.erase(fecha);
-        } else {
-            evento = v_input[2]; //funcion del_one
+            cout << "Deleted N events" << endl;
+        }
+ //DEL_evento:       
+        else {
+            evento = v_input[2];
             if(mapa.count(fecha)){
                 if(mapa[fecha].erase(evento)){
                     cout << "Deleted successfully" << endl;
@@ -56,15 +62,22 @@ while(true){
             }
         }
         v_input.clear();
-    } else if(comando == "Print"){
+    }
+
+//PRINT:
+    else if(comando == "Print"){ 
         v_comandos.push_back(comando);
         v_input.clear();
-    } else {
+    }
+
+//Error:
+    else {
         cout << "Unknown command: " << comando << endl;
         break;
     }
-}
-//Los comandos que imprimen algo
+    }
+
+//Los comandos que imprimen:
     for(int i = 0; i < v_comandos.size(); ++i){
         if(v_comandos[i] == "Find"){
             find(fecha_Find, mapa);
